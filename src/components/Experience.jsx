@@ -154,27 +154,31 @@ function ExperienceItem({ exp }) {
     : `${formatExperienceDate(start)} → ${formatExperienceDate(end)}`;
 
   return (
-    <div className={`glass glass-hover ${open ? 'item-active' : ''}`} style={{
-      borderRadius: 'var(--radius-lg)',
-      overflow: 'hidden',
-      marginBottom: '16px'
-    }}>
+    <div
+      className={`glass glass-hover experience-item ${open ? 'item-active' : ''}`}
+      style={{
+        borderRadius: 'var(--radius-lg)',
+        overflow: 'hidden',
+        marginBottom: '16px'
+      }}
+    >
       <div
         style={{ ...styles.header, ...(open ? styles.headerActive : {}) }}
+        className="experience-header"
         onClick={() => setOpen(o => !o)}
       >
         <div style={styles.left}>
           <div style={styles.role}>{role}</div>
           <div style={styles.company}>{exp.company}</div>
         </div>
-        <div style={styles.meta}>
+        <div style={styles.meta} className="experience-meta">
           {isCurrent && <span style={styles.badge}>Current</span>}
           <span style={styles.date}>{dateRange}</span>
         </div>
         <span style={{ ...styles.chevron, transform: open ? 'rotate(90deg)' : 'none' }}>▶</span>
       </div>
       {open && (
-        <div style={styles.body}>
+        <div style={styles.body} className="experience-body">
           {exp.location && <div style={styles.location}>📍 {exp.location}</div>}
           <ul style={styles.bullets}>
             {bulletItems.map((b, i) => (
@@ -194,7 +198,7 @@ export default function Experience({ experience }) {
   if (!experience?.length) return null;
 
   return (
-    <section id="experience" style={styles.section}>
+    <section id="experience" style={styles.section} className="experience-section">
       <div className="container">
         <div className="section-label">Experience</div>
         <div style={styles.list}>

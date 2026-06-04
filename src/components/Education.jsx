@@ -65,7 +65,7 @@ export default function Education({ education }) {
   if (!education?.length) return null;
 
   return (
-    <section id="education" style={styles.section}>
+    <section id="education" style={styles.section} className="education-section">
       <div className="container">
         <div className="section-label">Education</div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
@@ -73,11 +73,12 @@ export default function Education({ education }) {
             <div
               key={edu.id}
               style={styles.card}
+              className="education-card"
               onMouseEnter={e => e.currentTarget.style.borderColor = 'var(--accent)'}
               onMouseLeave={e => e.currentTarget.style.borderColor = 'var(--border)'}
             >
-              <div style={styles.icon}>🎓</div>
-              <div style={styles.body}>
+              <div style={styles.icon} className="education-icon">🎓</div>
+              <div style={styles.body} className="education-body">
                 <div style={styles.institution}>{edu.institution}</div>
                 <div style={styles.degree}>{edu.degree} — {edu.field}</div>
                 <div style={styles.meta}>

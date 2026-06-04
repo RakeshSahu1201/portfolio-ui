@@ -269,22 +269,22 @@ export default function Hero({ profile, navItems = [] }) {
         </div>
       </nav>
 
-      <section style={styles.hero}>
+      <section style={styles.hero} className="hero-section">
         <div style={styles.grid} />
         <div className="container">
-          <div style={styles.inner}>
+          <div style={styles.inner} className="hero-inner">
             <div style={styles.prompt}>
               <span style={styles.dot} />
               ~/portfolio
               <Cursor />
             </div>
-            <h1 style={styles.name}>{profile?.name || 'Your Portfolio'}</h1>
-            <p style={styles.title}>
+            <h1 style={styles.name} className="hero-name">{profile?.name || 'Your Portfolio'}</h1>
+            <p style={styles.title} className="hero-title">
               {displayText}<span style={{ animation: 'blink 1s infinite' }}>_</span>
             </p>
-            {profile?.summary && <p style={styles.summary}>{profile.summary}</p>}
+            {profile?.summary && <p style={styles.summary} className="hero-summary">{profile.summary}</p>}
             {(profile?.email || profile?.github_url || profile?.linkedin_url) && (
-              <div style={styles.links}>
+              <div style={styles.links} className="hero-actions">
                 {profile?.email && (
                   <a
                     href={`mailto:${profile.email}`}

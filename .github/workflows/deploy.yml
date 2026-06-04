@@ -3,10 +3,10 @@ name: Deploy Portfolio
 on:
   push:
     branches:
-      - main
+      - master
 
 concurrency:
-  group: deploy-main
+  group: deploy-master
   cancel-in-progress: true
 
 jobs:

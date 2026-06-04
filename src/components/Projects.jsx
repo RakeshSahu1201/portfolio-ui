@@ -7,7 +7,7 @@ const styles = {
   },
   grid: {
     display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(380px, 1fr))',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
     gap: 16,
   },
   card: {
@@ -283,10 +283,10 @@ export default function Projects({ projects }) {
   if (!projects?.length) return null;
 
   return (
-    <section id="projects" style={styles.section}>
+    <section id="projects" style={styles.section} className="projects-section">
       <div className="container">
         <div className="section-label">Projects</div>
-        <div style={styles.grid}>
+        <div style={styles.grid} className="projects-grid">
           {projects?.map((project, index) => (
             <ProjectCard key={project.id || `${project.title || 'project'}-${index}`} project={project} />
           ))}

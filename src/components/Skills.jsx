@@ -16,7 +16,7 @@ const styles = {
   },
   grid: {
     display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
     gap: 16,
   },
   card: {
@@ -67,10 +67,10 @@ export default function Skills({ skills }) {
   if (!skills?.length) return null;
 
   return (
-    <section id="skills" style={styles.section}>
+    <section id="skills" style={styles.section} className="skills-section">
       <div className="container">
         <div className="section-label">Skills</div>
-        <div style={styles.grid}>
+        <div style={styles.grid} className="skills-grid">
           {skills?.map(group => {
             const color = CATEGORY_COLORS[group.category] || 'var(--accent)';
             return (

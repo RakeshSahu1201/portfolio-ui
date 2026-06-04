@@ -120,10 +120,10 @@ export default function Contact() {
   };
 
   return (
-    <section style={styles.section}>
+    <section style={styles.section} className="contact-section">
       <div className="container">
         <h2 style={styles.title}>Get in Touch</h2>
-        <form style={styles.form} onSubmit={handleSubmit}>
+        <form style={styles.form} className="contact-form" onSubmit={handleSubmit}>
           <div style={styles.group}>
             <label htmlFor="name" style={styles.label}>Name</label>
             <input

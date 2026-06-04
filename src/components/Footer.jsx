@@ -43,13 +43,13 @@ export default function Footer({ profile }) {
   if (!hasFooterContent) return null;
 
   return (
-    <footer style={styles.footer}>
+    <footer style={styles.footer} className="site-footer">
       <div className="container">
-        <div style={styles.inner}>
+        <div style={styles.inner} className="site-footer-inner">
           <span style={styles.left}>
             © {new Date().getFullYear()} {profile?.name || 'Portfolio'} — Built with React
           </span>
-          <div style={styles.links}>
+          <div style={styles.links} className="site-footer-links">
             {profile?.email && (
               <a
                 href={`mailto:${profile.email}`}
