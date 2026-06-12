@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 const MONTH_NAMES = [
   'January',
@@ -43,7 +43,7 @@ const splitDescriptionLines = (value) => {
 
 const styles = {
   section: {
-    padding: '100px 0',
+    padding: '84px 0',
     borderBottom: '1px solid var(--border)',
   },
   list: { display: 'flex', flexDirection: 'column', gap: 2 },
@@ -53,18 +53,15 @@ const styles = {
     overflow: 'hidden',
     transition: 'border-color var(--transition)',
   },
-  itemActive: { borderColor: 'var(--accent)' },
   header: {
     display: 'flex',
     alignItems: 'flex-start',
     justifyContent: 'space-between',
-    padding: '20px 24px',
-    cursor: 'pointer',
+    padding: '18px 20px',
     background: 'var(--bg2)',
     transition: 'background var(--transition)',
     gap: 16,
   },
-  headerActive: { background: 'var(--bg3)' },
   left: { flex: 1 },
   role: {
     fontFamily: 'var(--font-display)',
@@ -104,15 +101,8 @@ const styles = {
     color: 'var(--accent)',
     border: '1px solid var(--accent)',
   },
-  chevron: {
-    fontFamily: 'var(--font-mono)',
-    fontSize: 12,
-    color: 'var(--text-dim)',
-    transition: 'transform var(--transition)',
-    marginTop: 2,
-  },
   body: {
-    padding: '0 24px 24px',
+    padding: '0 20px 20px',
     background: 'var(--bg2)',
   },
   location: {
@@ -140,7 +130,6 @@ const styles = {
 };
 
 function ExperienceItem({ exp }) {
-  const [open, setOpen] = useState(!exp.endDate && !exp.end_date);
   const role = exp.title || exp.role || 'Experience';
   const start = exp.startDate || exp.start_date;
   const end = exp.endDate || exp.end_date;
@@ -154,42 +143,34 @@ function ExperienceItem({ exp }) {
     : `${formatExperienceDate(start)} → ${formatExperienceDate(end)}`;
 
   return (
-    <div
-      className={`glass glass-hover experience-item ${open ? 'item-active' : ''}`}
-      style={{
-        borderRadius: 'var(--radius-lg)',
-        overflow: 'hidden',
-        marginBottom: '16px'
-      }}
-    >
+    <div className="glass glass-hover experience-item" style={{
+      borderRadius: 'var(--radius-lg)',
+      overflow: 'hidden',
+      marginBottom: '16px'
+    }}>
       <div
-        style={{ ...styles.header, ...(open ? styles.headerActive : {}) }}
+        style={styles.header}
         className="experience-header"
-        onClick={() => setOpen(o => !o)}
       >
         <div style={styles.left}>
           <div style={styles.role}>{role}</div>
           <div style={styles.company}>{exp.company}</div>
         </div>
         <div style={styles.meta} className="experience-meta">
-          {isCurrent && <span style={styles.badge}>Current</span>}
           <span style={styles.date}>{dateRange}</span>
         </div>
-        <span style={{ ...styles.chevron, transform: open ? 'rotate(90deg)' : 'none' }}>▶</span>
       </div>
-      {open && (
-        <div style={styles.body} className="experience-body">
-          {exp.location && <div style={styles.location}>📍 {exp.location}</div>}
-          <ul style={styles.bullets}>
-            {bulletItems.map((b, i) => (
-              <li key={i} style={styles.bullet}>
-                <span style={styles.bulletDot}>→</span>
-                <span>{b}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
+      <div style={styles.body} className="experience-body">
+        {exp.location && <div style={styles.location}>📍 {exp.location}</div>}
+        <ul style={styles.bullets}>
+          {bulletItems.map((b, i) => (
+            <li key={i} style={styles.bullet}>
+              <span style={styles.bulletDot}>→</span>
+              <span>{b}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }

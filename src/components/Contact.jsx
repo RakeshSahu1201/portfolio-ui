@@ -3,7 +3,7 @@ import { useContact } from '../hooks/useApi';
 
 const styles = {
   section: {
-    padding: '100px 0',
+    padding: '84px 0',
     borderTop: '1px solid var(--border)',
     borderBottom: '1px solid var(--border)',
   },
@@ -15,7 +15,7 @@ const styles = {
     marginBottom: 48,
   },
   form: {
-    maxWidth: 600,
+    maxWidth: 760,
     display: 'flex',
     flexDirection: 'column',
     gap: 20,

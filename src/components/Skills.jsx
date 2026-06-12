@@ -11,7 +11,7 @@ const CATEGORY_COLORS = {
 
 const styles = {
   section: {
-    padding: '100px 0',
+    padding: '84px 0',
     borderBottom: '1px solid var(--border)',
   },
   grid: {
@@ -78,7 +78,7 @@ export default function Skills({ skills }) {
                 key={group.id}
                 className="glass glass-hover"
                 style={{
-                  padding: '24px',
+                  padding: '20px',
                   borderRadius: 'var(--radius-lg)',
                   border: '1px solid var(--border)',
                   transition: 'border-color var(--transition)',

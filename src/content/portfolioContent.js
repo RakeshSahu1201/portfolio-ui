@@ -7,7 +7,6 @@ export const buildProfileForUi = (about = portfolioData.about) => ({
   title: about?.title || '',
   summary: about?.bio || '',
   email: about?.email || '',
-  phone: about?.phone || '',
   location: about?.location || '',
   github_url: about?.social?.github || '',
   linkedin_url: about?.social?.linkedin || '',

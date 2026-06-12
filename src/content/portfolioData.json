@@ -4,7 +4,6 @@
     "title": "Software Engineer",
     "bio": "Backend Engineer with 3+ years of experience specializing in Go, Node.js, and microservices architecture. Proven track record of migrating legacy monoliths to high-performance Go APIs and building robust backend systems for real-time applications. Experienced in streamlining CI/CD pipelines and implementing secure authentication flows to accelerate release velocity.",
     "email": "rakeshsahurcs1201@gmail.com",
-    "phone": "8305201883",
     "location": "Bhopal, India",
     "avatar": "",
     "social": {
@@ -40,7 +39,13 @@
       },
       {
         "category": "DevOps & Cloud",
-        "items": ["Docker", "GitLab CI/CD", "GitHub Actions", "Linux (Ubuntu)", "Bash Scripting"]
+        "items": [
+          "Docker",
+          "GitLab CI/CD",
+          "GitHub Actions",
+          "Linux (Ubuntu)",
+          "Bash Scripting"
+        ]
       },
       {
         "category": "Architecture & Tools",
@@ -50,21 +55,21 @@
   },
   "projects": [
     {
-      "title": "AI-Powered CI/CD Automation Pipeline",
-      "description": "Custom DevEx workflow that automates failed pipeline recovery, merge request commentary, and AI-assisted code review operations.",
-      "technologies": ["n8n", "GitLab Webhooks", "LLM APIs", "MCP Server"],
+      "title": "PR Reviewer AI – Autonomous Code Review Agent",
+      "description": "PR Reviewer AI is an intelligent developer tool designed to automate the code review process. By acting as an asynchronous agent, it listens to GitLab activity, analyzes code changes, and provides immediate, context-aware architectural feedback on Merge Requests.\n\nKey Technical Achievements:\n\n• Event-Driven Architecture: Split the application into two independent, containerized services (API and Worker) that share a common Postgres/Redis backend, allowing the system to scale polling and API requests independently.\n• Intelligent RAG Pipeline: Developed an optimization pipeline that analyzes raw Git diffs, extracts key components, and builds structured context for LLMs, resulting in highly accurate and token-efficient code reviews.\n• Secure & Resilient Infrastructure: Designed a secure token management system using AES-256-GCM encryption. Implemented a Redis caching layer for sessions with a fail-open strategy, ensuring high availability even if the cache goes down.\n• API Integrations: Deeply integrated with the GitLab API to fetch contribution events, resolve Merge Request IIDs, and post automated comments seamlessly into the developer's workflow.",
+      "technologies": ["Go", "PostgreSQL (Ent ORM)", "Redis", "Docker", "GitLab REST API", "LLMs"],
       "images": [],
       "link": "",
-      "github": "",
+      "github": "https://github.com/RakeshSahu1201/pr-reviewr-ai",
       "order": 1
     },
     {
-      "title": "Polyglot Chat Architecture",
-      "description": "Scaled a Node.js chat system with Go microservices, Redis Pub/Sub, and JWT-aware WebSocket message fan-out.",
-      "technologies": ["Node.js", "Go", "Redis", "WebSockets"],
+      "title": "Polyglot Real-Time Chat Architecture (Chatgram)",
+      "description": "An enterprise-grade, distributed real-time messaging platform built to handle massive concurrency. Rather than relying on a monolithic backend, this project leverages a Polyglot Microservices architecture. It utilizes Node.js to efficiently manage thousands of idle WebSocket connections via its event loop, while offloading computationally heavy broadcast routing to a highly performant Go (Golang) service utilizing lightweight goroutines.\n\nThe disparate services are seamlessly decoupled using Redis Pub/Sub acting as a high-speed message broker. The architecture features polyglot persistence (using PostgreSQL for relational schemas and MongoDB for high-throughput message ingestion), decentralized media storage via IPFS, and is entirely containerized. The system is deployed via a fully automated, zero-downtime GitHub Actions CI/CD pipeline securely routed through an NGINX API Gateway.",
+      "technologies": ["Go", "Node.js", "React", "Redis", "MongoDB", "PostgreSQL", "NGINX", "Docker", "Oracle Cloud Server"],
       "images": [],
-      "link": "",
-      "github": "https://github.com/RakeshSahu1201",
+      "link": "https://chatgram.freeddns.org",
+      "github": "https://github.com/RakeshSahu1201/polyglot-chat-architecture",
       "order": 2
     }
   ],
@@ -75,7 +80,7 @@
       "title": "Software Engineer",
       "startDate": "2024-06-01",
       "endDate": null,
-      "description": "Migrated legacy monolithic RESTful APIs from Laravel to Go, reducing average API response times by 80% and decreasing server resource consumption.\nIntegrated automated unit testing and linting into GitLab CI pipelines, preventing breaking changes from reaching production.\nReplaced legacy session management with modern token-based authentication protocols, securing endpoints across the application.\nBuilt a transactional email microservice capable of processing 1000 emails daily, facilitating reliable multi-module communication.",
+      "description": "Migrated legacy monolithic RESTful APIs from Laravel to Go, reducing average response times by 80% through Redis caching and optimized pagination.\nIntegrated automated unit testing and linting into GitLab CI pipelines, preventing breaking changes from reaching production.\nReplaced legacy authentication with secure role-based session management, strictly enforcing access controls across all application endpoints.\nDeveloped a transactional email microservice integrated with the Microsoft Azure Graph API to facilitate reliable multi-module communication.",
       "order": 1
     },
     {

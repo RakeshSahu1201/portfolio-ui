@@ -2,7 +2,7 @@ import React from 'react';
 
 const styles = {
   section: {
-    padding: '100px 0',
+    padding: '84px 0',
     borderBottom: '1px solid var(--border)',
   },
   card: {

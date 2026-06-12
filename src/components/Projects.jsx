@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 
 const styles = {
   section: {
-    padding: '100px 0',
+    padding: '84px 0',
     borderBottom: '1px solid var(--border)',
   },
   grid: {
     display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+    gridTemplateColumns: '1fr',
     gap: 16,
   },
   card: {
@@ -171,7 +171,7 @@ function ProjectCard({ project }) {
   return (
     <div className="glass glass-hover" style={{
       borderRadius: 'var(--radius-lg)',
-      padding: '28px',
+      padding: '24px',
       display: 'flex',
       flexDirection: 'column',
       gap: '20px',

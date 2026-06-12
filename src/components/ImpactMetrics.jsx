@@ -7,7 +7,7 @@ export default function ImpactMetrics() {
     if (!metrics.length) return null;
 
     return (
-        <section className="container" style={{ marginBottom: '80px' }}>
+        <section className="container" style={{ marginBottom: '64px' }}>
             <div className="section-label">Key Impact Metrics</div>
             <div style={{
                 display: 'grid',

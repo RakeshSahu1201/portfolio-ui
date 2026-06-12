@@ -23,7 +23,7 @@ const styles = {
   inner: {
     position: 'relative',
     zIndex: 1,
-    padding: '120px 0 80px',
+    padding: '104px 0 72px',
   },
   prompt: {
     fontFamily: 'var(--font-mono)',
@@ -63,7 +63,7 @@ const styles = {
     marginBottom: 24,
   },
   summary: {
-    maxWidth: 580,
+    maxWidth: 760,
     color: 'var(--text-muted)',
     fontSize: 14,
     lineHeight: 1.8,
@@ -111,7 +111,7 @@ const styles = {
     left: 0,
     right: 0,
     zIndex: 100,
-    padding: '0 24px',
+    padding: '0 16px',
     height: 56,
     display: 'flex',
     alignItems: 'center',
@@ -119,25 +119,33 @@ const styles = {
     background: 'rgba(10,10,10,0.9)',
     backdropFilter: 'blur(12px)',
     borderBottom: '1px solid var(--border)',
+    minWidth: 0,
   },
   navInner: {
     width: '100%',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
-    gap: 16,
+    gap: 12,
     position: 'relative',
+    minWidth: 0,
   },
   navLogo: {
     fontFamily: 'var(--font-display)',
     fontWeight: 800,
-    fontSize: 16,
+    fontSize: 'clamp(12px, 2vw, 16px)',
     color: 'var(--text)',
     letterSpacing: '-0.02em',
+    flexShrink: 0,
+    whiteSpace: 'nowrap',
   },
   navLinks: {
-    gap: 24,
+    display: 'flex',
+    alignItems: 'center',
+    gap: 'clamp(8px, 2vw, 16px)',
     listStyle: 'none',
+    flexShrink: 0,
+    minWidth: 0,
   },
   navLink: {
     fontFamily: 'var(--font-mono)',
@@ -165,6 +173,27 @@ const styles = {
     fontFamily: 'var(--font-mono)',
     fontSize: 18,
     lineHeight: 1,
+    flexShrink: 0,
+  },
+  themeToggle: {
+    display: 'inline-flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    minWidth: 40,
+    width: 40,
+    height: 40,
+    padding: '0 12px',
+    borderRadius: 'var(--radius)',
+    border: '1px solid var(--border)',
+    background: 'var(--bg2)',
+    color: 'var(--text)',
+    cursor: 'pointer',
+    fontFamily: 'var(--font-mono)',
+    fontSize: 12,
+    letterSpacing: '0.08em',
+    textTransform: 'uppercase',
+    transition: 'all var(--transition)',
+    flexShrink: 0,
   },
 };
 
@@ -190,9 +219,12 @@ function Cursor() {
 
 const NAV_ITEMS = ['experience', 'projects', 'skills', 'education'];
 
-export default function Hero({ profile, navItems = [] }) {
+export default function Hero({ profile, navItems = [], themeMode, onThemeToggle }) {
   const [displayText, setDisplayText] = useState('');
   const [isNavOpen, setIsNavOpen] = useState(false);
+  const resolvedTheme = themeMode === 'system'
+    ? (typeof window !== 'undefined' && window.matchMedia?.('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+    : themeMode;
   const fullTitle = profile?.title ?? 'Software Engineer';
   const hasHeroContent = Boolean(
     profile?.name ||
@@ -203,6 +235,14 @@ export default function Hero({ profile, navItems = [] }) {
     profile?.linkedin_url ||
     profile?.location
   );
+
+  const navLinkColor = resolvedTheme === 'light' ? '#64748b' : 'var(--text-muted)';
+  const navLinkHoverColor = resolvedTheme === 'light' ? '#2563eb' : 'var(--accent)';
+
+  const navLinkStyle = {
+    ...styles.navLink,
+    color: navLinkColor,
+  };
 
   useEffect(() => {
     let i = 0;
@@ -238,6 +278,46 @@ export default function Hero({ profile, navItems = [] }) {
         <div style={styles.navInner}>
           <span style={styles.navLogo}>{profile?.name?.split(' ')[0] ?? 'RS'}</span>
 
+          <ul
+            style={styles.navLinks}
+            className={`hero-nav-links ${isNavOpen ? 'open' : ''}`}
+          >
+            {(navItems.length ? navItems : NAV_ITEMS).map((id) => (
+              <li key={id}>
+                <button
+                  style={navLinkStyle}
+                  onClick={() => scrollTo(id)}
+                  onMouseEnter={e => {
+                    e.target.style.color = navLinkHoverColor;
+                  }}
+                  onMouseLeave={e => {
+                    e.target.style.color = navLinkColor;
+                  }}
+                >
+                  {id}
+                </button>
+              </li>
+            ))}
+          </ul>
+
+          <button
+            type="button"
+            style={styles.themeToggle}
+            className="hero-theme-toggle"
+            aria-label="Toggle theme"
+            onClick={onThemeToggle}
+            onMouseEnter={e => {
+              e.currentTarget.style.borderColor = 'var(--accent)';
+              e.currentTarget.style.color = 'var(--accent)';
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.borderColor = 'var(--border)';
+              e.currentTarget.style.color = 'var(--text)';
+            }}
+          >
+            {resolvedTheme === 'dark' ? '☀' : '☾'}
+          </button>
+
           <button
             type="button"
             style={styles.navToggle}
@@ -248,24 +328,6 @@ export default function Hero({ profile, navItems = [] }) {
           >
             ☰
           </button>
-
-          <ul
-            style={styles.navLinks}
-            className={`hero-nav-links ${isNavOpen ? 'open' : ''}`}
-          >
-            {(navItems.length ? navItems : NAV_ITEMS).map((id) => (
-              <li key={id}>
-                <button
-                  style={styles.navLink}
-                  onClick={() => scrollTo(id)}
-                  onMouseEnter={e => e.target.style.color = 'var(--accent)'}
-                  onMouseLeave={e => e.target.style.color = 'var(--text-muted)'}
-                >
-                  {id}
-                </button>
-              </li>
-            ))}
-          </ul>
         </div>
       </nav>
 
