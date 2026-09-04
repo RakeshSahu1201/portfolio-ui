@@ -40,16 +40,18 @@
       {
         "category": "DevOps & Cloud",
         "items": [
+          "Oracle Cloud (OCI)",
           "Docker",
-          "GitLab CI/CD",
-          "GitHub Actions",
-          "Linux (Ubuntu)",
-          "Bash Scripting"
+          "NGINX (API Gateway)",
+          "SSL/TLS",
+          "CDN",
+          "CI/CD (GitHub Actions, GitLab)",
+          "Linux (Ubuntu, Bash, iptables, ufw)"
         ]
       },
       {
         "category": "Architecture & Tools",
-        "items": ["RESTful APIs", "Microservices", "WebSockets", "JWT", "Git", "n8n"]
+        "items": ["RESTful APIs", "Microservices", "WebSockets", "JWT", "Git", "n8n", "MCP"]
       }
     ]
   },
@@ -65,8 +67,8 @@
     },
     {
       "title": "Polyglot Real-Time Chat Architecture (Chatgram)",
-      "description": "An enterprise-grade, distributed real-time messaging platform built to handle massive concurrency. Rather than relying on a monolithic backend, this project leverages a Polyglot Microservices architecture. It utilizes Node.js to efficiently manage thousands of idle WebSocket connections via its event loop, while offloading computationally heavy broadcast routing to a highly performant Go (Golang) service utilizing lightweight goroutines.\n\nThe disparate services are seamlessly decoupled using Redis Pub/Sub acting as a high-speed message broker. The architecture features polyglot persistence (using PostgreSQL for relational schemas and MongoDB for high-throughput message ingestion), decentralized media storage via IPFS, and is entirely containerized. The system is deployed via a fully automated, zero-downtime GitHub Actions CI/CD pipeline securely routed through an NGINX API Gateway.",
-      "technologies": ["Go", "Node.js", "React", "Redis", "MongoDB", "PostgreSQL", "NGINX", "Docker", "Oracle Cloud Server"],
+      "description": "Designed a distributed microservices chat platform, utilizing Node.js event loops to manage high-volume WebSocket connections and Go (goroutines) to handle computationally heavy broadcast routing.\n\nDecoupled service communication using Redis Pub/Sub as a high-speed message broker and implemented polyglot persistence (PostgreSQL for relational schemas, MongoDB for high-throughput message ingestion).\n\nDeployed an Nginx API Gateway on Oracle Cloud with edge-level SSL termination via Let's Encrypt. Configured host-level iptables to isolate Docker container ports, routing all public traffic exclusively through the secure proxy.\n\nAutomated containerized deployments via a zero-downtime GitHub Actions CI/CD pipeline and integrated IPFS for decentralized media storage.",
+      "technologies": ["Go", "Node.js", "React", "Redis", "MongoDB", "PostgreSQL", "NGINX", "Docker", "Oracle Cloud (OCI)"],
       "images": [],
       "link": "https://chatgram.freeddns.org",
       "github": "https://github.com/RakeshSahu1201/polyglot-chat-architecture",
