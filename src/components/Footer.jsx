@@ -1,4 +1,5 @@
 import React from 'react';
+import VisitorCount from './VisitorCount';
 
 const styles = {
   footer: {
@@ -46,9 +47,12 @@ export default function Footer({ profile }) {
     <footer style={styles.footer} className="site-footer">
       <div className="container">
         <div style={styles.inner} className="site-footer-inner">
-          <span style={styles.left}>
-            © {new Date().getFullYear()} {profile?.name || 'Portfolio'} — Built with React
-          </span>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            <span style={styles.left}>
+              © {new Date().getFullYear()} {profile?.name || 'Portfolio'}
+            </span>
+            <VisitorCount customStyle={{ marginTop: 0, animation: 'none' }} />
+          </div>
           <div style={styles.links} className="site-footer-links">
             {profile?.email && (
               <a

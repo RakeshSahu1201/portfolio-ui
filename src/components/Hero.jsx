@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import VisitorCount from './VisitorCount';
 
 const styles = {
   hero: {

@@ -23,23 +23,41 @@
     "skills": [
       {
         "category": "Languages",
-        "items": ["Go", "JavaScript (ES6+)", "Java"]
+        "items": [
+          "Go",
+          "JavaScript (ES6+)",
+          "Java",
+          "Python"
+        ]
       },
       {
         "category": "Backend & Frameworks",
-        "items": ["Node.js", "Express.js", "Gin", "Laravel"]
+        "items": [
+          "Gin",
+          "Node.js",
+          "Express.js",
+          "Laravel"
+        ]
       },
       {
         "category": "Frontend",
-        "items": ["React.js"]
+        "items": [
+          "React.js"
+        ]
       },
       {
         "category": "Databases",
-        "items": ["PostgreSQL", "MongoDB", "MySQL", "Elasticsearch"]
+        "items": [
+          "PostgreSQL",
+          "MongoDB",
+          "MySQL",
+          "Elasticsearch"
+        ]
       },
       {
         "category": "DevOps & Cloud",
         "items": [
+          "AWS(EC2, S3)",
           "Oracle Cloud (OCI)",
           "Docker",
           "NGINX (API Gateway)",
@@ -51,7 +69,15 @@
       },
       {
         "category": "Architecture & Tools",
-        "items": ["RESTful APIs", "Microservices", "WebSockets", "JWT", "Git", "n8n", "MCP"]
+        "items": [
+          "RESTful APIs",
+          "Microservices",
+          "WebSockets",
+          "JWT",
+          "Git",
+          "n8n",
+          "MCP"
+        ]
       }
     ]
   },
@@ -59,7 +85,14 @@
     {
       "title": "PR Reviewer AI – Autonomous Code Review Agent",
       "description": "PR Reviewer AI is an intelligent developer tool designed to automate the code review process. By acting as an asynchronous agent, it listens to GitLab activity, analyzes code changes, and provides immediate, context-aware architectural feedback on Merge Requests.\n\nKey Technical Achievements:\n\n• Event-Driven Architecture: Split the application into two independent, containerized services (API and Worker) that share a common Postgres/Redis backend, allowing the system to scale polling and API requests independently.\n• Intelligent RAG Pipeline: Developed an optimization pipeline that analyzes raw Git diffs, extracts key components, and builds structured context for LLMs, resulting in highly accurate and token-efficient code reviews.\n• Secure & Resilient Infrastructure: Designed a secure token management system using AES-256-GCM encryption. Implemented a Redis caching layer for sessions with a fail-open strategy, ensuring high availability even if the cache goes down.\n• API Integrations: Deeply integrated with the GitLab API to fetch contribution events, resolve Merge Request IIDs, and post automated comments seamlessly into the developer's workflow.",
-      "technologies": ["Go", "PostgreSQL (Ent ORM)", "Redis", "Docker", "GitLab REST API", "LLMs"],
+      "technologies": [
+        "Go",
+        "PostgreSQL (Ent ORM)",
+        "Redis",
+        "Docker",
+        "GitLab REST API",
+        "LLMs"
+      ],
       "images": [],
       "link": "",
       "github": "https://github.com/RakeshSahu1201/pr-reviewr-ai",
@@ -68,7 +101,17 @@
     {
       "title": "Polyglot Real-Time Chat Architecture (Chatgram)",
       "description": "Designed a distributed microservices chat platform, utilizing Node.js event loops to manage high-volume WebSocket connections and Go (goroutines) to handle computationally heavy broadcast routing.\n\nDecoupled service communication using Redis Pub/Sub as a high-speed message broker and implemented polyglot persistence (PostgreSQL for relational schemas, MongoDB for high-throughput message ingestion).\n\nDeployed an Nginx API Gateway on Oracle Cloud with edge-level SSL termination via Let's Encrypt. Configured host-level iptables to isolate Docker container ports, routing all public traffic exclusively through the secure proxy.\n\nAutomated containerized deployments via a zero-downtime GitHub Actions CI/CD pipeline and integrated IPFS for decentralized media storage.",
-      "technologies": ["Go", "Node.js", "React", "Redis", "MongoDB", "PostgreSQL", "NGINX", "Docker", "Oracle Cloud (OCI)"],
+      "technologies": [
+        "Go",
+        "Node.js",
+        "React",
+        "Redis",
+        "MongoDB",
+        "PostgreSQL",
+        "NGINX",
+        "Docker",
+        "Oracle Cloud (OCI)"
+      ],
       "images": [],
       "link": "https://chatgram.freeddns.org",
       "github": "https://github.com/RakeshSahu1201/polyglot-chat-architecture",
